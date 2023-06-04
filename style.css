@@ -60,12 +60,14 @@ button {
     background-color: #FF8F1F;
 }
 
+.backspace{
+    background-color: dodgerblue;
+    grid-column: span 2;
+}
 #zero {
     grid-column: span 2;
 }
 
-.percent,
-.plusorminus,
 .clear {
     background-color: dodgerblue;
 
@@ -83,12 +85,11 @@ button {
     background-color: rgb(123, 189, 255);
 }
 
-.plusorminus:active {
+.backspace:active {
     background-color: rgb(123, 189, 255);
+
 }
-.percent:active {
-    background-color: rgb(123, 189, 255);
-}
+
 
 .equal {
     background-color: #FF8F1F;

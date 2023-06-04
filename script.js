@@ -5,6 +5,7 @@ const displayText = document.querySelector('.display-text');
 const operandsButton = document.querySelectorAll('.operand');
 const equalButton = document.querySelector('.equal');
 const operators = document.querySelectorAll('.operator');
+const backspacebutton = document.querySelector('.backspace')
 
 var currentValue = displayText.textContent;
 var currentIntValue;
@@ -12,7 +13,7 @@ var oldValue = "";
 var oldIntValue;
 var displayMode = "operation";
 
-
+backspacebutton.addEventListener('click',deleteLast);
 
 
 
@@ -36,8 +37,14 @@ function getResult(){
         result = oldIntValue * currentIntValue;
         updateDisplay(result);
      } else if (oldValue.includes('/')) {
-        result = oldIntValue / currentIntValue;
-        updateDisplay(result);
+        if (currentValue === "0") {
+            displayText.textContent = 'DUMMY!!!'
+            currentValue = oldValue;
+        } else {
+            result = oldIntValue / currentIntValue;
+            updateDisplay(result);
+        }
+        
      }
     
 }
@@ -74,8 +81,9 @@ operandsButton.forEach((button) => button.addEventListener('click', function(e){
         displayText.textContent = currentValue;
     } else if (displayText.textContent.length === 8){
        console.log('hi');
-    }
-    else {
+    } else if (e.target.textContent == "." && currentValue.includes('.')){
+        alert('already has a decimal point')
+    } else {
         currentText = displayText.textContent;
         currentValue = currentText + this.textContent;
         displayText.textContent = currentValue;
@@ -103,12 +111,16 @@ function hardClearDisplay() {
 
 function getNumber(number) {
     if (number.includes('.')) {
-        return parseFloat(number);
+        return parseFloat(number).toFixed(3);
     } else {
         return parseInt(number);
     }
 }
 
+function deleteLast() {
+  let newValue = currentValue.substring(0, currentValue.length-1);
+  updateDisplay(newValue);
+}
 
 
 
