@@ -1,0 +1,95 @@
+.calculator{
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(100px,auto) repeat(5, 80px);
+    gap: 2px;
+    background-color: black;
+    width: fit-content  ;
+    border-radius: 5px;
+    border: 10px solid rgba(47,47,47,1);
+
+}
+
+.display-container {
+    grid-column: 1/-1;
+    background-color: #b2b9b7;
+    display: flex;
+    border: 3px solid black;
+    justify-content: flex-end;
+    padding: 10px;
+
+}
+
+.calculator-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    min-height: 95vh;
+    background-color: azure;
+}
+
+button {
+    margin: 1px;
+    border-radius: 5%;
+    border: none;
+    font-weight: initial;
+    font-size: 2em;
+    font-family: monospace;
+    color: black;
+    transition: all .07s ease;
+}
+
+.operator:active {
+    background-color: #ffc183;
+}
+
+.operand {
+    background-color: #217C7E;
+}
+
+.operand:active {
+    background-color: #33b9bb;
+}
+
+.equal:active {
+    background-color: #33b9bb;
+}
+
+.operator {
+    background-color: #FF8F1F;
+}
+
+#zero {
+    grid-column: span 2;
+}
+
+.percent,
+.plusorminus,
+.clear {
+    background-color: dodgerblue;
+
+}
+
+.display-text{
+    display: flex;
+    align-items: center;
+    font-family: monospace;
+    font-size: 75px;
+    text-shadow: 1.3px 1.3px #383838;
+}
+
+.clear:active {
+    background-color: rgb(123, 189, 255);
+}
+
+.plusorminus:active {
+    background-color: rgb(123, 189, 255);
+}
+.percent:active {
+    background-color: rgb(123, 189, 255);
+}
+
+.equal {
+    background-color: #FF8F1F;
+}
